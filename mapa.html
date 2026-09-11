@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#050505" />
+  <meta name="description" content="Mapa interativo das regionais e divisões do Insanos MC, dentro do portal Regional Mato Grosso do Sul." />
+  <title>Mapa Nacional | Insanos MC Regional MS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preload" href="assets/fonts/FonteInsanos.TTF" as="font" type="font/ttf" crossorigin />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="assets/mapa/vendor/leaflet/leaflet.css">
+  <link rel="stylesheet" href="assets/mapa/vendor/cluster/MarkerCluster.css">
+  <link rel="stylesheet" href="assets/mapa/vendor/cluster/MarkerCluster.Default.css">
+  <link rel="stylesheet" href="assets/mapa/mapa.css">
+</head>
+<body class="map-page">
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <header class="site-header" id="topo">
+    <a class="brand" href="index.html#inicio" aria-label="Insanos MC Regional MS">
+      <img class="brand-logo" src="assets/logo-insanos.png" alt="Brasão oficial do Insanos MC" width="161" height="200" />
+      <div class="brand-copy">
+        <strong class="brand-name">INSANOS MC</strong>
+        <span>REGIONAL MATO GROSSO DO SUL</span>
+      </div>
+    </a>
+
+    <button class="menu-toggle" type="button" aria-controls="main-nav" aria-label="Abrir menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav id="main-nav" class="main-nav" aria-label="Navegação principal">
+      <a href="index.html#inicio">Início</a>
+      <a href="index.html#regional">Regional MS</a>
+      <a href="index.html#comando">Comando</a>
+      <a href="index.html#divisoes">Divisões</a>
+      <a href="index.html#acoes">Ações Sociais</a>
+      <a href="index.html#galeria">Galeria</a>
+      <a href="index.html#missoes">Notícias</a>
+      <a href="mapa.html" aria-current="page">Mapa Nacional</a>
+      <a href="index.html#contato">Contato</a>
+      <a class="nav-cta" href="index.html#faca-parte">Faça Parte</a>
+    </nav>
+  </header>
+
+  <main class="map-main" id="conteudo" tabindex="-1">
+    <div class="map-heading">
+      <div>
+        <h1 class="major-title">MAPA NACIONAL</h1>
+        <p>Explore as regionais e divisões do Insanos MC.</p>
+      </div>
+      <a class="btn btn-ghost" href="index.html">Voltar ao portal</a>
+    </div>
+<div class="national-map-app">
+  <aside class="sidebar" id="sidebar">
+    <div class="map-brand">
+      <div class="brand-top">
+        <div class="badge"><img src="assets/logo-insanos.png" alt="Insanos Moto Clube"></div>
+        <div class="map-brand-copy">
+          <h2>INSANOS MC<br>Mapa Nacional</h2>
+          <p>Visualização interativa de Regionais e Divisões</p>
+        </div>
+        <button class="mobile-close" id="mobileClose" aria-label="Fechar menu" type="button">&times;</button>
+      </div>
+    </div>
+
+    <div class="map-stats">
+      <div class="map-stat"><strong id="sTotal">1411</strong><span>Pontos</span></div>
+      <div class="map-stat"><strong id="sRegionais">129</strong><span>Regionais</span></div>
+      <div class="map-stat"><strong id="sDivisoes">1281</strong><span>Divisões</span></div>
+      <div class="map-stat"><strong id="sUFs">27</strong><span>UFs</span></div>
+    </div>
+
+    <div class="filters">
+      <div>
+        <label for="search">Pesquisar</label>
+        <input id="search" placeholder="Ex.: Campo Grande, ABC, Bahia...">
+      </div>
+      <div class="map-row">
+        <div>
+          <label for="uf">Estado</label>
+          <select id="uf"><option value="">Todos</option></select>
+        </div>
+        <div>
+          <label for="regional">Regional</label>
+          <select id="regional"><option value="">Todas</option></select>
+        </div>
+      </div>
+      <div>
+        <label>Exibir tipos</label>
+        <div class="type-toggles">
+          <label class="chip"><input type="checkbox" class="typeCheck" value="QG" checked> QG</label>
+          <label class="chip"><input type="checkbox" class="typeCheck" value="Regional" checked> Regionais</label>
+          <label class="chip"><input type="checkbox" class="typeCheck" value="Divisão" checked> Divisões</label>
+        </div>
+      </div>
+      <div class="map-row">
+        <button class="map-btn" id="reset">Limpar</button>
+        <button class="map-btn btn-accent" id="fit">Ver todos</button>
+      </div>
+    </div>
+
+    <div class="results-head"><span>Locais encontrados</span><b id="resultCount">1411</b></div>
+    <div class="results" id="results" aria-label="Locais encontrados"></div>
+  </aside>
+
+  <section class="map-wrap">
+    <div id="map"></div>
+    <div class="mobile-bar">
+      <div class="mobile-bar-brand">
+        <img class="mobile-bar-logo" src="assets/logo-insanos.png" alt="Insanos Moto Clube">
+        <div class="mobile-bar-title">
+          <strong>INSANOS MC</strong>
+          <span>Mapa Nacional</span>
+        </div>
+      </div>
+      <button class="mobile-open" id="mobileOpen" type="button" aria-controls="sidebar" aria-expanded="false">Locais</button>
+    </div>
+    <div class="map-top">
+      <div style="display:flex;gap:8px">
+        <div class="map-title">
+          <b>Presença Nacional — Insanos MC</b>
+          <span>Clique em um ponto para visualizar os detalhes</span>
+        </div>
+      </div>
+      <div class="legend">
+        <span><i class="pin-dot" style="background:#111"></i>QG</span>
+        <span><i class="pin-dot" style="background:#d9252a"></i>Regional</span>
+        <span><i class="pin-dot" style="background:#4a4a55"></i>Divisão</span>
+      </div>
+    </div>
+  </section>
+  <div class="mobile-backdrop" id="mobileBackdrop"></div>
+</div>
+  </main>
+  <script src="script.js"></script>
+  <script src="assets/mapa/vendor/leaflet/leaflet.js"></script>
+  <script src="assets/mapa/vendor/cluster/leaflet.markercluster.js"></script>
+  <script src="assets/mapa/mapa.js"></script>
+</body>
+</html>

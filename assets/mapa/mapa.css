@@ -1,0 +1,129 @@
+.national-map-app {
+  --bg:#0b0b0d; --panel:#121216; --panel2:#1b1b20; --line:#2c2c33;
+  --text:#f3f3f5; --muted:#9b9ba5; --accent:#d9252a; --accent2:#ff4248;
+}
+.national-map-app * {box-sizing:border-box}
+.national-map-app {height:100%;margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--text)}
+.national-map-app {display:grid;grid-template-columns:340px minmax(0,1fr);grid-template-rows:minmax(0,1fr);overflow:hidden}
+.national-map-app .sidebar {background:linear-gradient(180deg,#0b0b0d,#151519);border-right:1px solid var(--line);display:flex;flex-direction:column;min-width:0;max-height:100dvh}
+.national-map-app .map-brand {padding:20px 18px 16px;border-bottom:1px solid var(--line)}
+.national-map-app .brand-top {display:flex;gap:12px;align-items:center;min-width:0}
+.national-map-app .badge {width:52px;height:52px;display:grid;place-items:center;flex:0 0 52px}
+.national-map-app .badge img {display:block;width:100%;height:100%;object-fit:contain}
+.national-map-app .map-brand-copy {min-width:0}
+.national-map-app .map-brand h2 {font-size:18px;margin:0;line-height:1.15}
+.national-map-app .map-brand p {margin:5px 0 0;color:var(--muted);font-size:12px}
+.national-map-app .map-stats {display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:14px 16px}
+.national-map-app .map-stat {padding:12px;background:var(--panel2);border:1px solid var(--line);border-radius:10px}
+.national-map-app .map-stat strong {display:block;font-size:22px}
+.national-map-app .map-stat span {font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.national-map-app .filters {padding:0 16px 14px;display:grid;gap:9px;border-bottom:1px solid var(--line)}
+.national-map-app label {font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.national-map-app input, .national-map-app select, .national-map-app button {width:100%;height:40px;border-radius:8px;border:1px solid var(--line);background:#17171c;color:var(--text);padding:0 11px}
+.national-map-app input:focus, .national-map-app select:focus {outline:1px solid var(--accent);border-color:var(--accent)}
+.national-map-app .map-row {display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.national-map-app .map-btn {cursor:pointer;font-weight:700;background:#202026}
+.national-map-app .map-btn:hover {border-color:#555}
+.national-map-app .btn-accent {background:var(--accent);border-color:var(--accent)}
+.national-map-app .type-toggles {display:flex;gap:6px;flex-wrap:wrap}
+.national-map-app .chip {display:flex;align-items:center;gap:6px;padding:6px 8px;border:1px solid var(--line);border-radius:999px;font-size:12px;color:#ddd;cursor:pointer;user-select:none}
+.national-map-app .chip input {width:auto;height:auto;margin:0}
+.national-map-app .results-head {padding:12px 16px 8px;display:flex;justify-content:space-between;color:var(--muted);font-size:12px}
+.national-map-app .results {overflow:visible;padding:0 10px 12px;min-height:0}
+.national-map-app .map-card {padding:10px 11px;margin:6px 0;border:1px solid var(--line);border-radius:9px;background:#151519;cursor:pointer}
+.national-map-app .map-card:hover {border-color:#555;background:#1a1a20}
+.national-map-app .map-card .name {font-size:13px;font-weight:700;line-height:1.25}
+.national-map-app .map-meta {margin-top:4px;font-size:11px;color:var(--muted);display:flex;gap:8px;flex-wrap:wrap}
+.national-map-app .dot {width:7px;height:7px;border-radius:50%;display:inline-block}
+.national-map-app .map-wrap {position:relative;min-width:0;min-height:0}
+.national-map-app #map {height:100%;width:100%;background:#151515}
+.national-map-app .map-top {position:absolute;z-index:800;top:14px;left:76px;right:14px;display:flex;justify-content:space-between;pointer-events:none}
+.national-map-app .map-title {pointer-events:auto;background:rgba(12,12,14,.90);backdrop-filter:blur(8px);border:1px solid var(--line);padding:10px 13px;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+.national-map-app .map-title b {display:block;font-size:14px}
+.national-map-app .map-title span {font-size:11px;color:var(--muted)}
+.national-map-app .legend {pointer-events:auto;background:rgba(12,12,14,.90);backdrop-filter:blur(8px);border:1px solid var(--line);padding:9px 11px;border-radius:10px;font-size:11px;color:#ddd;display:flex;gap:12px;align-items:center}
+.national-map-app .legend i {display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px}
+.national-map-app .legend .pin-dot {width:10px;height:10px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);position:relative;top:1px}
+.national-map-app .legend .pin-dot::after {content:"";position:absolute;width:4px;height:4px;border-radius:50%;background:#fff;left:3px;top:3px}
+.national-map-app .popup-title {font-size:14px;font-weight:800;margin-bottom:7px}
+.national-map-app .popup-type {font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#aaa;margin-bottom:7px}
+.national-map-app .popup-row {font-size:12px;margin:4px 0}
+.national-map-app .popup-link, .national-map-app .popup-share {display:inline-block;margin-top:8px;text-decoration:none;background:#d9252a;color:#fff!important;padding:7px 9px;border-radius:7px;font-size:12px;font-weight:700}
+.national-map-app .popup-share {width:auto;height:auto;border:0;cursor:pointer}
+.national-map-app .leaflet-popup-content-wrapper, .national-map-app .leaflet-popup-tip {background:#17171b;color:#fff}
+.national-map-app .leaflet-control-zoom a {background:#17171b!important;color:#fff!important;border-color:#333!important}
+.national-map-app .marker-cluster div {font-weight:800}
+.national-map-app .custom-pin {border-radius:50%;border:2px solid #fff;box-shadow:0 1px 5px rgba(0,0,0,.6)}
+.national-map-app .map-pin {width:24px;height:24px;border-radius:50% 50% 50% 0;position:relative;transform:rotate(-45deg);box-shadow:0 2px 6px rgba(0,0,0,.45)}
+.national-map-app .map-pin::after {content:"";position:absolute;width:9px;height:9px;border-radius:50%;background:#fff;left:7.5px;top:7.5px}
+.national-map-app .map-pin-qg {background:#050505}
+.national-map-app .map-pin-regional {background:#d9252a}
+.national-map-app .map-pin-divisao {width:20px;height:20px;background:#4a4a55}
+.national-map-app .map-pin-divisao::after {width:7px;height:7px;left:6.5px;top:6.5px}
+.national-map-app .mobile-bar, .national-map-app .mobile-open, .national-map-app .mobile-close {display:none}
+.national-map-app .mobile-backdrop {display:none}
+@media(max-width:850px){.national-map-app {overflow:hidden}
+.national-map-app {grid-template-columns:1fr}
+.national-map-app .sidebar {position:fixed;z-index:1200;left:0;top:0;bottom:0;width:min(360px,92vw);transform:translateX(-100%);transition:transform .2s ease;box-shadow:16px 0 34px rgba(0,0,0,.38)}
+.national-map-app .sidebar.open {transform:translateX(0)}
+.national-map-app .mobile-backdrop {position:fixed;z-index:1100;inset:0;background:rgba(0,0,0,.48);backdrop-filter:blur(2px)}
+.national-map-app.menu-open .mobile-backdrop {display:block}
+.national-map-app .map-brand {padding:14px 14px 12px}
+.national-map-app .brand-top {gap:10px}
+.national-map-app .badge {width:46px;height:46px;flex-basis:46px}
+.national-map-app .map-brand h2 {font-size:16px}
+.national-map-app .map-brand p {font-size:11px}
+.national-map-app .mobile-close {display:grid;place-items:center;margin-left:auto;width:40px;height:40px;padding:0;border-radius:8px;font-size:22px;line-height:1;background:#1d1d23}
+.national-map-app .map-stats {padding:12px;gap:7px}
+.national-map-app .map-stat {padding:10px;border-radius:8px}
+.national-map-app .map-stat strong {font-size:20px}
+.national-map-app .filters {padding:0 12px 12px;gap:8px}
+.national-map-app input, .national-map-app select, .national-map-app button {height:44px;font-size:16px}
+.national-map-app .chip {min-height:36px}
+.national-map-app .results-head {padding:10px 12px 7px}
+.national-map-app .results {padding:0 8px 10px}
+.national-map-app .map-card {padding:11px 10px}
+.national-map-app .mobile-bar {position:absolute;z-index:900;top:0;left:0;right:0;height:64px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 12px;background:rgba(11,11,13,.96);border-bottom:1px solid var(--line);box-shadow:0 8px 24px rgba(0,0,0,.22)}
+.national-map-app .mobile-bar-brand {display:flex;align-items:center;gap:10px;min-width:0}
+.national-map-app .mobile-bar-logo {width:40px;height:40px;display:block;object-fit:contain;flex:0 0 40px}
+.national-map-app .mobile-bar-title {min-width:0}
+.national-map-app .mobile-bar-title strong {display:block;font-size:15px;line-height:1.05;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.national-map-app .mobile-bar-title span {display:block;margin-top:3px;color:var(--muted);font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.national-map-app .mobile-open {display:flex;pointer-events:auto;align-items:center;justify-content:center;gap:8px;background:#202026;border-color:#3a3a43;color:white;width:auto;min-width:96px;height:42px;padding:0 12px;flex:0 0 auto;font-weight:800}
+.national-map-app .mobile-open::before {content:"";width:16px;height:12px;background:linear-gradient(#fff 0 0) top/100% 2px no-repeat,linear-gradient(#fff 0 0) center/100% 2px no-repeat,linear-gradient(#fff 0 0) bottom/100% 2px no-repeat}
+.national-map-app .map-top {top:76px;left:54px;right:10px;align-items:flex-start;justify-content:flex-start;flex-direction:column;gap:8px}
+.national-map-app .map-top>div:first-child {width:100%;min-width:0}
+.national-map-app .map-title {display:block;max-width:min(280px,calc(100vw - 76px));padding:8px 10px;border-radius:8px}
+.national-map-app .map-title b {font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.national-map-app .map-title span {display:block;margin-top:3px;font-size:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.national-map-app .legend {display:flex;max-width:min(260px,calc(100vw - 76px));padding:8px 10px;border-radius:8px;gap:10px;flex-wrap:wrap}
+.national-map-app .leaflet-control-zoom {margin-top:144px!important}
+.national-map-app .leaflet-popup-content {max-width:72vw}
+}
+@media(max-width:420px){.national-map-app .map-row {grid-template-columns:1fr}
+.national-map-app .type-toggles {gap:5px}
+.national-map-app .chip {font-size:11px;padding:6px 7px}
+.national-map-app .mobile-open {min-width:84px;padding:0 10px}
+.national-map-app .mobile-bar-title span {display:none}
+.national-map-app .map-top {left:50px}
+.national-map-app .map-title, .national-map-app .legend {max-width:calc(100vw - 64px)}
+.national-map-app .legend {font-size:10px;gap:8px}
+}
+
+.national-map-app { position: relative; isolation: isolate; height: max(620px, calc(100dvh - 220px)); min-height: 620px; width: 100%; line-height: normal; }
+.national-map-app .map-brand { display: block; }
+.national-map-app .map-brand-copy { display: block; }
+.national-map-app .map-brand h2 { font-family: Montserrat, Arial, sans-serif; }
+.national-map-app .map-stat { text-align: left; }
+.national-map-app .map-stat strong { line-height: normal; margin: 0; }
+.national-map-app button { text-transform: none; letter-spacing: normal; }
+.national-map-app .sidebar { height: 100%; min-height: 0; max-height: 100%; overflow-y: auto; overflow-x: hidden; overscroll-behavior: contain; scrollbar-gutter: stable; }
+.national-map-app .sidebar > * { flex-shrink: 0; }
+.national-map-app .map-card { height: auto; width: 100%; text-align: left; display: block; }
+.national-map-app .empty-results { padding: 16px; color: #ddd; }
+.national-map-app .map-wrap { padding: 0; }
+@media(max-width:850px) {
+ .national-map-app { height: max(560px, calc(100dvh - 245px)); min-height: 560px; }
+ .national-map-app .sidebar, .national-map-app .mobile-backdrop { position: absolute; }
+ .national-map-app .sidebar:not(.open) { visibility: hidden; }
+}
